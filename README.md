@@ -17,5 +17,9 @@
 - The image build starts a CPU-only ComfyUI server and checks H3 node registration
   and model discovery through both the workspace and the extra RAM-model path.
   This does not verify GPU model loading, generation, or user-installed nodes.
-- Candidate image: `ghcr.io/arrangecompose-code/runpod-comfyui-cu130:v0.43.0-basefix`.
+- Published image: `ghcr.io/arrangecompose-code/runpod-comfyui-cu130:v0.43.0-basefix`.
   The old `v0.35.0` tag is not overwritten.
+- This image removes about 207 MiB of obsolete application data from the first
+  v0.43.0 image. Hosts can reuse the same 15 official CUDA13 layers as v0.35.0.
+  Host-side cache availability is controlled by Runpod; this image cannot
+  guarantee that every newly allocated host already has those layers.
