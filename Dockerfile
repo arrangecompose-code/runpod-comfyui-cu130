@@ -1,6 +1,7 @@
-# Keep the exact working CUDA/PyTorch stack and /start.sh used by v0.35.0.
-# Do not follow the mutable RunPod base tag when updating ComfyUI.
-FROM ghcr.io/arrangecompose-code/runpod-comfyui-cu130@sha256:dc14eac173cb3416a722429a59d354149d96cbbcac99287a4074699d9d53f3ae
+# Reuse the exact 15 official layers already used by v0.35.0.
+# Pin the official base directly, without retaining the obsolete 207 MiB
+# v0.35.0 application layer underneath the replacement application.
+FROM runpod/comfyui@sha256:bad26aad809a442a0d2674827d58c03f95686d0ea6d0d0e0cbebacd787488797
 
 ARG COMFYUI_VERSION=v0.43.0
 

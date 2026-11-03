@@ -1,6 +1,8 @@
 # RunPod ComfyUI CUDA 13 / ComfyUI v0.43.0
 
-- Base: the original working `v0.35.0` image, pinned to its Linux/amd64 digest
+- Base: the exact official Runpod base used by `v0.35.0`, pinned to its
+  Linux/amd64 digest. Its 15 layers are retained byte for byte, without stacking
+  the obsolete 207 MiB v0.35.0 application layer underneath the new application.
 - ComfyUI: `v0.43.0` (stable release, source commit `426f5eea52a7ece1dd599fff4cb6cd1f352ddd24`)
 - CUDA 13.0 / PyTorch 2.10.0+cu130 / Python 3.12 are retained
 - No models bundled
@@ -15,5 +17,5 @@
 - The image build starts a CPU-only ComfyUI server and checks H3 node registration
   and model discovery through both the workspace and the extra RAM-model path.
   This does not verify GPU model loading, generation, or user-installed nodes.
-- Published image: `ghcr.io/arrangecompose-code/runpod-comfyui-cu130:v0.43.0`.
+- Candidate image: `ghcr.io/arrangecompose-code/runpod-comfyui-cu130:v0.43.0-basefix`.
   The old `v0.35.0` tag is not overwritten.
